@@ -1,0 +1,40 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.env
+.venv
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+
+# --- Pytest / coverage ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# --- Build artifacts ---
+build/
+dist/
+
+# --- Tooling / IDE ---
+.idea/
+.vscode/
+.DS_Store
+
+# --- Claude / AI tooling ---
+.claude/
+
+# --- Project-specific ---
+outputs/
+presets/
+
+# --- Optional ---
+data.json
+
