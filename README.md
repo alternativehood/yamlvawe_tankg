@@ -1,4 +1,3 @@
-```md
 # yamlvawe_tankg
 
 A Python tool for converting M-VAVE Tank G v2 guitar pedal presets between the binary `.tkg` format and a human-readable YAML representation.
@@ -35,7 +34,6 @@ This tool allows:
 ├── CLAUDE.md              # Project-level generation constraints
 ├── .python-version        # Target Python version (pyenv)
 └── .gitignore
-
 ```
 
 ---
@@ -91,7 +89,6 @@ openspec/specs/preset-converter/spec.md
 ## Status
 
 Early but functional.
-Specification-first development — implementation follows `openspec/`.
 
 ---
 
@@ -99,6 +96,3 @@ Specification-first development — implementation follows `openspec/`.
 
 This project is not affiliated with or endorsed by M-VAVE.
 All trademarks belong to their respective owners.
-
-```
-
