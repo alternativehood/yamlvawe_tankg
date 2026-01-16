@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank G Preset Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pedal">
+        <header class="pedal-header">
+            <h1>M-VAVE TANK G</h1>
+            <div class="led-indicator" id="led-indicator"></div>
+        </header>
+
+        <div class="file-controls">
+            <input type="file" id="file-input" accept=".tkg,.yaml,.yml" hidden>
+            <button onclick="document.getElementById('file-input').click()">Load Preset</button>
+            <button onclick="exportYAML()">Export YAML</button>
+            <button onclick="exportTKG()">Export TKG</button>
+        </div>
+
+        <div class="sections">
+            <!-- AMP Section -->
+            <section class="effect-section amp-section">
+                <div class="section-header">
+                    <h2>AMP</h2>
+                    <label class="toggle">
+                        <input type="checkbox" id="amp-enabled">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <div class="selector-control">
+                        <label>MODEL</label>
+                        <select id="amp-model">
+                            <option value="0">Clean</option>
+                            <option value="1">Crunch</option>
+                            <option value="2">Hi-Gain</option>
+                            <option value="3">Metal</option>
+                            <option value="4">Acoustic</option>
+                            <option value="5">Bass</option>
+                            <option value="6">British</option>
+                            <option value="7">American</option>
+                            <option value="8">Boutique</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="knobs-row">
+                    <div class="knob-control">
+                        <div class="knob" data-param="amp-gain" data-min="1" data-max="128"></div>
+                        <label>GAIN</label>
+                        <span class="knob-value">61</span>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob" data-param="amp-treble" data-min="1" data-max="128"></div>
+                        <label>TREBLE</label>
+                        <span class="knob-value">126</span>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob" data-param="amp-middle" data-min="1" data-max="128"></div>
+                        <label>MIDDLE</label>
+                        <span class="knob-value">114</span>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob" data-param="amp-bass" data-min="1" data-max="128"></div>
+                        <label>BASS</label>
+                        <span class="knob-value">94</span>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob" data-param="amp-volume" data-min="0" data-max="127"></div>
+                        <label>VOLUME</label>
+                        <span class="knob-value">60</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MOD Section -->
+            <section class="effect-section mod-section">
+                <div class="section-header">
+                    <h2>MOD</h2>
+                    <label class="toggle">
+                        <input type="checkbox" id="mod-enabled">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <div class="selector-control">
+                        <label>TYPE</label>
+                        <select id="mod-type">
+                            <option value="1">Chorus</option>
+                            <option value="2">Phaser</option>
+                            <option value="3">Tremolo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="knobs-row">
+                    <div class="knob-control">
+                        <div class="knob" data-param="mod-depth" data-min="1" data-max="46"></div>
+                        <label>DEPTH</label>
+                        <span class="knob-value">1</span>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob" data-param="mod-speed" data-min="1" data-max="128"></div>
+                        <label>SPEED</label>
+                        <span class="knob-value">1</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DELAY Section -->
+            <section class="effect-section delay-section">
+                <div class="section-header">
+                    <h2>DELAY</h2>
+                    <label class="toggle">
+                        <input type="checkbox" id="delay-enabled">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <div class="selector-control">
+                        <label>TYPE</label>
+                        <select id="delay-type">
+                            <option value="1">Digital</option>
+                            <option value="2">Analog</option>
+                            <option value="3">Tape</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="knobs-row">
+                    <div class="knob-control">
+                        <div class="knob" data-param="delay-mix" data-min="1" data-max="46"></div>
+                        <label>MIX</label>
+                        <span class="knob-value">1</span>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob" data-param="delay-time" data-min="1" data-max="128"></div>
+                        <label>TIME</label>
+                        <span class="knob-value">1</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- REVERB Section -->
+            <section class="effect-section reverb-section">
+                <div class="section-header">
+                    <h2>REVERB</h2>
+                    <label class="toggle">
+                        <input type="checkbox" id="reverb-enabled">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="control-row">
+                    <div class="selector-control">
+                        <label>TYPE</label>
+                        <select id="reverb-type">
+                            <option value="1">Room</option>
+                            <option value="2">Hall</option>
+                            <option value="3">Plate</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="knobs-row">
+                    <div class="knob-control">
+                        <div class="knob" data-param="reverb-decay" data-min="1" data-max="46"></div>
+                        <label>DECAY</label>
+                        <span class="knob-value">1</span>
+                    </div>
+                    <div class="knob-control">
+                        <div class="knob" data-param="reverb-mix" data-min="1" data-max="128"></div>
+                        <label>MIX</label>
+                        <span class="knob-value">90</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="bottom-controls">
+            <div class="knob-control">
+                <div class="knob" data-param="noise-gate" data-min="0" data-max="127"></div>
+                <label>NOISE GATE</label>
+                <span class="knob-value">0</span>
+            </div>
+            <div class="selector-control ir-control">
+                <label>IR CAB</label>
+                <select id="ir-cab">
+                    <option value="0">Off</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+            <div class="color-control">
+                <label>LED COLOR</label>
+                <input type="color" id="led-color" value="#fefe7e">
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

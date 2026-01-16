@@ -1,6 +1,6 @@
 # yamlvawe_tankg
 
-A Python tool for converting M-VAVE Tank G v2 guitar pedal presets between the binary `.tkg` format and a human-readable YAML representation.
+A toolkit for M-VAVE Tank G v2 guitar pedal presets: CLI converter between binary `.tkg` and YAML formats, plus a web-based visual editor.
 
 The project is designed to make Tank G presets inspectable, version-controllable, and scriptable.
 
@@ -15,6 +15,7 @@ This tool allows:
 
 - Converting `.tkg` → YAML for inspection and editing
 - Converting YAML → `.tkg` with strict validation
+- Visual editing via a web-based pedal interface
 - Using presets as reproducible fixtures in tests and tooling
 - Tracking meaningful diffs in Git instead of opaque binaries
 
@@ -26,7 +27,12 @@ This tool allows:
 .
 ├── yamlvawe_tankg/        # Python package
 │   ├── __main__.py        # CLI entry point
-│   └── converter.py      # Core conversion logic
+│   └── converter.py       # Core conversion logic
+│
+├── viewer/                # Web-based preset viewer/editor
+│   ├── index.html         # Pedal UI layout
+│   ├── style.css          # Dark theme styling
+│   └── app.js             # Knob interaction & TKG parser
 │
 ├── openspec/              # Formal project specification
 │
@@ -55,7 +61,29 @@ Run via module execution:
 
 ```bash
 python -m yamlvawe_tankg <command> [options]
-````
+```
+
+---
+
+## Web Viewer
+
+A browser-based preset viewer and editor that mimics the Tank G pedal interface.
+
+### Features
+
+- Visual rotary knobs (drag or scroll to adjust)
+- All effect sections: AMP, MOD, DELAY, REVERB
+- On/off toggles, model/type selectors
+- Noise gate, IR cabinet, LED color picker
+- Load/export `.tkg` and `.yaml` files
+- Standalone JS parser (no backend required)
+
+### Running
+
+```bash
+cd viewer && python -m http.server 9000
+# Open http://localhost:9000
+```
 
 ---
 
